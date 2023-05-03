@@ -13,7 +13,7 @@ import {
     contentTypeCacheExpressRouter,
     IRequestWithUser
 } from '@lumieducation/h5p-express';
-
+import H5PHtmlExporter from '@lumieducation/h5p-html-exporter';
 import * as H5P from '@lumieducation/h5p-server';
 import restExpressRoutes from './routes';
 import User from './User';
@@ -192,6 +192,27 @@ const start = async (): Promise<void> => {
         contentTypeCacheExpressRouter(h5pEditor.contentTypeCache)
     );
 
+    // added by abdou start
+    const htmlExporter = new H5PHtmlExporter(
+        h5pEditor.libraryStorage,
+        h5pEditor.contentStorage,
+        h5pEditor.config,
+        path.join(__dirname, '../h5p/core'),
+        path.join(__dirname, '../h5p/editor')
+    );
+
+    server.get('/h5p/html/:contentId', async (req, res) => {
+        const html = await htmlExporter.createSingleBundle(
+            req.params.contentId,
+            (req as any).user
+        );
+        res.setHeader(
+            'Content-disposition',
+            `attachment; filename=${req.params.contentId}.html`
+        );
+        res.status(200).send(html);
+    });
+    // added by abdou end
     const port = process.env.PORT || '8080';
 
     // For developer convenience we display a list of IPs, the server is running

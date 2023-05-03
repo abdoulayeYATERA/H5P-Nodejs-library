@@ -15,6 +15,7 @@
     "license": "MIT",
     "dependencies": {
         "@lumieducation/h5p-express": "^9.0.2",
+        "@lumieducation/h5p-html-exporter": "^9.0.2",
         "@lumieducation/h5p-mongos3": "^9.0.2",
         "@lumieducation/h5p-server": "^9.0.2",
         "body-parser": "1.19.0",
