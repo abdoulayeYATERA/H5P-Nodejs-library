@@ -213,13 +213,12 @@ const start = async (): Promise<void> => {
         res.status(200).send(html);
     });
     // added by abdou end
-    const port = process.env.PORT || '8080';
-
     // For developer convenience we display a list of IPs, the server is running
     // on. You can then simply click on it in the terminal.
-    displayIps(port);
-
-    server.listen(port);
+    const port = 8080;
+    const host = '127.0.0.1';
+    //displayIps(port);
+    server.listen(port, host);
 };
 
 // We can't use await outside a an async function, so we use the start()
