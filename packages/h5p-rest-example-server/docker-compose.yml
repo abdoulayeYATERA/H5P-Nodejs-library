@@ -1,0 +1,12 @@
+version: '3'
+services:
+    lumi-rest-server:
+        image: 'milliweb/lumi_rest_server:1.0.0-arm64'
+        build: .
+        ports:
+            - '8080:8080'
+        security_opt:
+            - 'apparmor:unconfined'
+        volumes:
+            - './h5p/content:/usr/src/app/h5p/content'
+            - './h5p/libraries:/usr/src/app/h5p/libraries'

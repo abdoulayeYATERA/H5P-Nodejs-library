@@ -22,13 +22,15 @@
         "@types/jest": "27.0.1",
         "@types/node": "16.9.2",
         "@types/react": "17.0.21",
-        "@types/react-dom": "17.0.9"
+        "@types/react-dom": "17.0.9",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-prettier": "^4.2.1"
     },
     "scripts": {
-        "build": "react-scripts build",
+        "build": "react-scripts --openssl-legacy-provider build",
         "clean": "rm -rf build && rm -rf coverage && rm -rf node_modules",
         "eject": "react-scripts eject",
-        "start": "react-scripts start",
+        "start": "react-scripts --openssl-legacy-provider start",
         "test": "react-scripts test",
         "lint": "npx eslint -c .eslintrc.js --ext .ts src --quiet"
     },

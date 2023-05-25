@@ -1,0 +1,9 @@
+version: '3'
+services:
+    lumi-rest-server:
+        image: 'milliweb/lumi_rest_server_php:1.0.0-arm64'
+        build: .
+        ports:
+            - '8080:8080'
+        security_opt:
+            - 'apparmor:unconfined'
