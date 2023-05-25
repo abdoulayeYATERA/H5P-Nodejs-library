@@ -218,7 +218,8 @@ const start = async (): Promise<void> => {
     const port = 8080;
     const host = '127.0.0.1';
     //displayIps(port);
-    server.listen(port, host);
+    //server.listen(port, host);
+    server.listen(port);
 };
 
 // We can't use await outside a an async function, so we use the start()
