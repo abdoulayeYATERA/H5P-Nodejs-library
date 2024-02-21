@@ -1,7 +1,7 @@
 version: '3'
 services:
     lumi-rest-server:
-        image: 'milliweb/lumi_rest_client:1.1.0'
+        image: 'milliweb/lumi_rest_client:1.0.1'
         build: .
         ports:
             - '8080:8080'
